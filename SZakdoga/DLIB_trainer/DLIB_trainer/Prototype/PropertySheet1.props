@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Niko\Desktop\dlib-19.16\source;$(REALSENSE_DIR)\include;$(OPENCV_DIR)\build\include;C:\Intel\OpenCL\sdk\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dlib19.16.0_release_64bit_msvc1916.lib;opencv_world401.lib;realsense2.lib;OpenCL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Niko\Desktop\dlib-19.16\build\dlib\Release;$(OPENCV_DIR)\build\x64\vc15\lib;$(REALSENSE_DIR)\lib\x64;C:\Intel\OpenCL\sdk\lib\x64;</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

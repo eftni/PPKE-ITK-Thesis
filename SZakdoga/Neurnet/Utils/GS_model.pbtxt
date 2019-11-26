@@ -1,0 +1,5514 @@
+version: 1
+descriptor_core_version: 1
+descriptors {
+  id: "tensorflow_extension"
+  version: 1
+}
+graphs {
+  id: "main"
+  nodes {
+    id: "concatenate_2/concat"
+    inputs: "reshape_3/Reshape"
+    inputs: "reshape_4/Reshape"
+    operation: "Concat"
+    fields {
+      key: "axis"
+      value {
+        i: 2
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/Reshape"
+    inputs: "conv2d_21/BiasAdd"
+    inputs: "reshape_4/Reshape/shape"
+    operation: "Reshape"
+  }
+  nodes {
+    id: "reshape_4/Reshape/shape"
+    inputs: "reshape_4/strided_slice"
+    inputs: "reshape_4/Reshape/shape/1"
+    inputs: "reshape_4/Reshape/shape/2"
+    inputs: "reshape_4/Reshape/shape/3"
+    operation: "Stack"
+    fields {
+      key: "axis"
+      value {
+        i: 0
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/Reshape/shape/3"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_4/Reshape/shape/3"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/Reshape/shape/2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_4/Reshape/shape/2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/Reshape/shape/1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_4/Reshape/shape/1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/strided_slice"
+    inputs: "reshape_4/Shape"
+    inputs: "reshape_4/strided_slice/stack"
+    inputs: "reshape_4/strided_slice/stack_1"
+    inputs: "reshape_4/strided_slice/stack_2"
+    operation: "StridedSlice"
+    fields {
+      key: "begin_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "end_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "shrink_axis_mask"
+      value {
+        i: 1
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/strided_slice/stack_2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_4/strided_slice/stack_2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/strided_slice/stack_1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_4/strided_slice/stack_1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/strided_slice/stack"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_4/strided_slice/stack"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_4/Shape"
+    inputs: "conv2d_21/BiasAdd"
+    operation: "Shape"
+  }
+  nodes {
+    id: "conv2d_21/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_21/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_21/BiasAdd"
+    inputs: "conv2d_21/convolution"
+    inputs: "conv2d_21/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_21/convolution"
+    inputs: "activation_17/Relu"
+    inputs: "conv2d_21/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_21/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 96
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_21/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "activation_17/Relu"
+    inputs: "lambda_27/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_27/Add"
+    inputs: "activation_16/Relu"
+    inputs: "conv2d_17/BiasAdd"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_17/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_17/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_17/BiasAdd"
+    inputs: "conv2d_17/convolution"
+    inputs: "conv2d_17/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_17/convolution"
+    inputs: "depthwise_conv2d_16/depthwise"
+    inputs: "conv2d_17/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_17/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 96
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_17/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_16/depthwise"
+    inputs: "activation_16/Relu"
+    inputs: "depthwise_conv2d_16/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 96
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_16/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 96
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_16/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "activation_16/Relu"
+    inputs: "lambda_26/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_26/Add"
+    inputs: "activation_15/Relu"
+    inputs: "conv2d_16/BiasAdd"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_16/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_16/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_16/BiasAdd"
+    inputs: "conv2d_16/convolution"
+    inputs: "conv2d_16/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_16/convolution"
+    inputs: "depthwise_conv2d_15/depthwise"
+    inputs: "conv2d_16/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_16/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 96
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_16/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_15/depthwise"
+    inputs: "activation_15/Relu"
+    inputs: "depthwise_conv2d_15/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 96
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_15/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 96
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_15/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "activation_15/Relu"
+    inputs: "lambda_25/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_25/Add"
+    inputs: "activation_14/Relu"
+    inputs: "conv2d_15/BiasAdd"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_15/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_15/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_15/BiasAdd"
+    inputs: "conv2d_15/convolution"
+    inputs: "conv2d_15/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_15/convolution"
+    inputs: "depthwise_conv2d_14/depthwise"
+    inputs: "conv2d_15/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_15/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 96
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_15/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_14/depthwise"
+    inputs: "activation_14/Relu"
+    inputs: "depthwise_conv2d_14/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 96
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_14/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 96
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_14/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "activation_14/Relu"
+    inputs: "lambda_24/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_24/Add"
+    inputs: "activation_13/Relu"
+    inputs: "conv2d_14/BiasAdd"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_14/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_14/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_14/BiasAdd"
+    inputs: "conv2d_14/convolution"
+    inputs: "conv2d_14/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_14/convolution"
+    inputs: "depthwise_conv2d_13/depthwise"
+    inputs: "conv2d_14/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_14/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 96
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_14/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_13/depthwise"
+    inputs: "activation_13/Relu"
+    inputs: "depthwise_conv2d_13/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 96
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_13/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 96
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_13/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "activation_13/Relu"
+    inputs: "lambda_23/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_23/Add"
+    inputs: "conv2d_13/BiasAdd"
+    inputs: "Transpose10"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose10"
+    inputs: "lambda_22/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_22/Pad"
+    inputs: "max_pooling2d_3/MaxPool"
+    inputs: "lambda_22/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_22/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_22/Const"
+      }
+    }
+  }
+  nodes {
+    id: "max_pooling2d_3/MaxPool"
+    inputs: "activation_12/Relu"
+    operation: "Pool"
+    fields {
+      key: "func"
+      value {
+        s: "max"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C"
+      }
+    }
+    fields {
+      key: "kernel"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+  }
+  nodes {
+    id: "activation_12/Relu"
+    inputs: "lambda_21/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_21/Add"
+    inputs: "conv2d_12/BiasAdd"
+    inputs: "Transpose9"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose9"
+    inputs: "lambda_20/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_20/Pad"
+    inputs: "activation_11/Relu"
+    inputs: "lambda_20/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_20/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_20/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_11/Relu"
+    inputs: "lambda_19/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_19/Add"
+    inputs: "conv2d_11/BiasAdd"
+    inputs: "Transpose8"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose8"
+    inputs: "lambda_18/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_18/Pad"
+    inputs: "activation_10/Relu"
+    inputs: "lambda_18/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_18/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_18/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_10/Relu"
+    inputs: "lambda_17/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_17/Add"
+    inputs: "conv2d_10/BiasAdd"
+    inputs: "Transpose7"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose7"
+    inputs: "lambda_16/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_16/Pad"
+    inputs: "activation_9/Relu"
+    inputs: "lambda_16/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_16/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_16/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_9/Relu"
+    inputs: "lambda_15/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_15/Add"
+    inputs: "conv2d_9/BiasAdd"
+    inputs: "Transpose6"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose6"
+    inputs: "lambda_14/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_14/Pad"
+    inputs: "activation_8/Relu"
+    inputs: "lambda_14/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_14/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_14/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_8/Relu"
+    inputs: "lambda_13/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_13/Add"
+    inputs: "conv2d_8/BiasAdd"
+    inputs: "Transpose5"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose5"
+    inputs: "lambda_12/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_12/Pad"
+    inputs: "activation_7/Relu"
+    inputs: "lambda_12/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_12/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_12/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_7/Relu"
+    inputs: "lambda_11/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_11/Add"
+    inputs: "conv2d_7/BiasAdd"
+    inputs: "Transpose4"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose4"
+    inputs: "lambda_10/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_10/Pad"
+    inputs: "max_pooling2d_2/MaxPool"
+    inputs: "lambda_10/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_10/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_10/Const"
+      }
+    }
+  }
+  nodes {
+    id: "max_pooling2d_2/MaxPool"
+    inputs: "activation_6/Relu"
+    operation: "Pool"
+    fields {
+      key: "func"
+      value {
+        s: "max"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C"
+      }
+    }
+    fields {
+      key: "kernel"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+  }
+  nodes {
+    id: "activation_6/Relu"
+    inputs: "lambda_9/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_9/Add"
+    inputs: "conv2d_6/BiasAdd"
+    inputs: "Transpose3"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose3"
+    inputs: "lambda_8/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_8/Pad"
+    inputs: "activation_5/Relu"
+    inputs: "lambda_8/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_8/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_8/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_5/Relu"
+    inputs: "lambda_7/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_7/Add"
+    inputs: "conv2d_5/BiasAdd"
+    inputs: "Transpose2"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose2"
+    inputs: "lambda_6/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_6/Pad"
+    inputs: "activation_4/Relu"
+    inputs: "lambda_6/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_6/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_6/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_4/Relu"
+    inputs: "lambda_5/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_5/Add"
+    inputs: "conv2d_4/BiasAdd"
+    inputs: "Transpose1"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose1"
+    inputs: "lambda_4/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_4/Pad"
+    inputs: "max_pooling2d_1/MaxPool"
+    inputs: "lambda_4/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_4/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_4/Const"
+      }
+    }
+  }
+  nodes {
+    id: "max_pooling2d_1/MaxPool"
+    inputs: "activation_3/Relu"
+    operation: "Pool"
+    fields {
+      key: "func"
+      value {
+        s: "max"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C"
+      }
+    }
+    fields {
+      key: "kernel"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+  }
+  nodes {
+    id: "activation_3/Relu"
+    inputs: "lambda_3/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_3/Add"
+    inputs: "conv2d_3/BiasAdd"
+    inputs: "Transpose0"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "Transpose0"
+    inputs: "lambda_2/Pad"
+    operation: "Transpose"
+    fields {
+      key: "permutation"
+      value {
+        i_list {
+          val: 3
+          val: 2
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "lambda_2/Pad"
+    inputs: "activation_2/Relu"
+    inputs: "lambda_2/Const"
+    operation: "Pad"
+  }
+  nodes {
+    id: "lambda_2/Const"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 4
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_lambda_2/Const"
+      }
+    }
+  }
+  nodes {
+    id: "activation_2/Relu"
+    inputs: "lambda_1/Add"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "lambda_1/Add"
+    inputs: "activation_1/Relu"
+    inputs: "conv2d_2/BiasAdd"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_2/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 24
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_2/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_2/BiasAdd"
+    inputs: "conv2d_2/convolution"
+    inputs: "conv2d_2/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_2/convolution"
+    inputs: "depthwise_conv2d_1/depthwise"
+    inputs: "conv2d_2/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_2/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 24
+          val: 24
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_2/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_1/depthwise"
+    inputs: "activation_1/Relu"
+    inputs: "depthwise_conv2d_1/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 24
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_1/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 24
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_1/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "activation_1/Relu"
+    inputs: "conv2d_1/BiasAdd"
+    operation: "Activation"
+    fields {
+      key: "func"
+      value {
+        s: "relu"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_1/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 24
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_1/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_1/BiasAdd"
+    inputs: "conv2d_1/convolution"
+    inputs: "conv2d_1/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_1/convolution"
+    inputs: "input_1"
+    inputs: "conv2d_1/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_1/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 5
+          val: 5
+          val: 3
+          val: 24
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_1/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "input_1"
+    operation: "Input"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: -1
+          val: 128
+          val: 128
+          val: 3
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_3/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 28
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_3/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_3/BiasAdd"
+    inputs: "conv2d_3/convolution"
+    inputs: "conv2d_3/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_3/convolution"
+    inputs: "depthwise_conv2d_2/depthwise"
+    inputs: "conv2d_3/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_3/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 24
+          val: 28
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_3/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_2/depthwise"
+    inputs: "activation_2/Relu"
+    inputs: "depthwise_conv2d_2/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 24
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_2/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 24
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_2/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_4/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 32
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_4/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_4/BiasAdd"
+    inputs: "conv2d_4/convolution"
+    inputs: "conv2d_4/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_4/convolution"
+    inputs: "depthwise_conv2d_3/depthwise"
+    inputs: "conv2d_4/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_4/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 28
+          val: 32
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_4/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_3/depthwise"
+    inputs: "activation_3/Relu"
+    inputs: "depthwise_conv2d_3/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 28
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_3/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 28
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_3/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_5/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 36
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_5/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_5/BiasAdd"
+    inputs: "conv2d_5/convolution"
+    inputs: "conv2d_5/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_5/convolution"
+    inputs: "depthwise_conv2d_4/depthwise"
+    inputs: "conv2d_5/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_5/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 32
+          val: 36
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_5/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_4/depthwise"
+    inputs: "activation_4/Relu"
+    inputs: "depthwise_conv2d_4/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 32
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_4/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 32
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_4/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_6/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 42
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_6/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_6/BiasAdd"
+    inputs: "conv2d_6/convolution"
+    inputs: "conv2d_6/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_6/convolution"
+    inputs: "depthwise_conv2d_5/depthwise"
+    inputs: "conv2d_6/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_6/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 36
+          val: 42
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_6/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_5/depthwise"
+    inputs: "activation_5/Relu"
+    inputs: "depthwise_conv2d_5/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 36
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_5/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 36
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_5/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_7/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 48
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_7/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_7/BiasAdd"
+    inputs: "conv2d_7/convolution"
+    inputs: "conv2d_7/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_7/convolution"
+    inputs: "depthwise_conv2d_6/depthwise"
+    inputs: "conv2d_7/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_7/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 42
+          val: 48
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_7/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_6/depthwise"
+    inputs: "activation_6/Relu"
+    inputs: "depthwise_conv2d_6/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 42
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_6/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 42
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_6/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_8/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 56
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_8/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_8/BiasAdd"
+    inputs: "conv2d_8/convolution"
+    inputs: "conv2d_8/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_8/convolution"
+    inputs: "depthwise_conv2d_7/depthwise"
+    inputs: "conv2d_8/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_8/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 48
+          val: 56
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_8/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_7/depthwise"
+    inputs: "activation_7/Relu"
+    inputs: "depthwise_conv2d_7/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 48
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_7/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 48
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_7/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_9/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 64
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_9/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_9/BiasAdd"
+    inputs: "conv2d_9/convolution"
+    inputs: "conv2d_9/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_9/convolution"
+    inputs: "depthwise_conv2d_8/depthwise"
+    inputs: "conv2d_9/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_9/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 56
+          val: 64
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_9/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_8/depthwise"
+    inputs: "activation_8/Relu"
+    inputs: "depthwise_conv2d_8/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 56
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_8/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 56
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_8/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_10/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 72
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_10/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_10/BiasAdd"
+    inputs: "conv2d_10/convolution"
+    inputs: "conv2d_10/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_10/convolution"
+    inputs: "depthwise_conv2d_9/depthwise"
+    inputs: "conv2d_10/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_10/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 64
+          val: 72
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_10/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_9/depthwise"
+    inputs: "activation_9/Relu"
+    inputs: "depthwise_conv2d_9/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 64
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_9/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 64
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_9/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_11/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 80
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_11/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_11/BiasAdd"
+    inputs: "conv2d_11/convolution"
+    inputs: "conv2d_11/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_11/convolution"
+    inputs: "depthwise_conv2d_10/depthwise"
+    inputs: "conv2d_11/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_11/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 72
+          val: 80
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_11/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_10/depthwise"
+    inputs: "activation_10/Relu"
+    inputs: "depthwise_conv2d_10/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 72
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_10/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 72
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_10/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_12/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 88
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_12/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_12/BiasAdd"
+    inputs: "conv2d_12/convolution"
+    inputs: "conv2d_12/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_12/convolution"
+    inputs: "depthwise_conv2d_11/depthwise"
+    inputs: "conv2d_12/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_12/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 80
+          val: 88
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_12/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_11/depthwise"
+    inputs: "activation_11/Relu"
+    inputs: "depthwise_conv2d_11/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 80
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_11/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 80
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_11/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_13/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_13/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_13/BiasAdd"
+    inputs: "conv2d_13/convolution"
+    inputs: "conv2d_13/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_13/convolution"
+    inputs: "depthwise_conv2d_12/depthwise"
+    inputs: "conv2d_13/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_13/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 88
+          val: 96
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_13/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_12/depthwise"
+    inputs: "activation_12/Relu"
+    inputs: "depthwise_conv2d_12/depthwise_kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "number_groups"
+      value {
+        i: 88
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 2
+          val: 2
+        }
+      }
+    }
+  }
+  nodes {
+    id: "depthwise_conv2d_12/depthwise_kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 3
+          val: 3
+          val: 88
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_depthwise_conv2d_12/depthwise_kernel"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/Reshape"
+    inputs: "conv2d_20/BiasAdd"
+    inputs: "reshape_3/Reshape/shape"
+    operation: "Reshape"
+  }
+  nodes {
+    id: "reshape_3/Reshape/shape"
+    inputs: "reshape_3/strided_slice"
+    inputs: "reshape_3/Reshape/shape/1"
+    inputs: "reshape_3/Reshape/shape/2"
+    inputs: "reshape_3/Reshape/shape/3"
+    operation: "Stack"
+    fields {
+      key: "axis"
+      value {
+        i: 0
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/Reshape/shape/3"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_3/Reshape/shape/3"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/Reshape/shape/2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_3/Reshape/shape/2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/Reshape/shape/1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_3/Reshape/shape/1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/strided_slice"
+    inputs: "reshape_3/Shape"
+    inputs: "reshape_3/strided_slice/stack"
+    inputs: "reshape_3/strided_slice/stack_1"
+    inputs: "reshape_3/strided_slice/stack_2"
+    operation: "StridedSlice"
+    fields {
+      key: "begin_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "end_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "shrink_axis_mask"
+      value {
+        i: 1
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/strided_slice/stack_2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_3/strided_slice/stack_2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/strided_slice/stack_1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_3/strided_slice/stack_1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/strided_slice/stack"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_3/strided_slice/stack"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_3/Shape"
+    inputs: "conv2d_20/BiasAdd"
+    operation: "Shape"
+  }
+  nodes {
+    id: "conv2d_20/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 32
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_20/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_20/BiasAdd"
+    inputs: "conv2d_20/convolution"
+    inputs: "conv2d_20/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_20/convolution"
+    inputs: "activation_12/Relu"
+    inputs: "conv2d_20/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_20/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 88
+          val: 32
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_20/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "concatenate_1/concat"
+    inputs: "reshape_1/Reshape"
+    inputs: "reshape_2/Reshape"
+    operation: "Concat"
+    fields {
+      key: "axis"
+      value {
+        i: 2
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/Reshape"
+    inputs: "conv2d_19/BiasAdd"
+    inputs: "reshape_2/Reshape/shape"
+    operation: "Reshape"
+  }
+  nodes {
+    id: "reshape_2/Reshape/shape"
+    inputs: "reshape_2/strided_slice"
+    inputs: "reshape_2/Reshape/shape/1"
+    inputs: "reshape_2/Reshape/shape/2"
+    inputs: "reshape_2/Reshape/shape/3"
+    operation: "Stack"
+    fields {
+      key: "axis"
+      value {
+        i: 0
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/Reshape/shape/3"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_2/Reshape/shape/3"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/Reshape/shape/2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_2/Reshape/shape/2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/Reshape/shape/1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_2/Reshape/shape/1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/strided_slice"
+    inputs: "reshape_2/Shape"
+    inputs: "reshape_2/strided_slice/stack"
+    inputs: "reshape_2/strided_slice/stack_1"
+    inputs: "reshape_2/strided_slice/stack_2"
+    operation: "StridedSlice"
+    fields {
+      key: "begin_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "end_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "shrink_axis_mask"
+      value {
+        i: 1
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/strided_slice/stack_2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_2/strided_slice/stack_2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/strided_slice/stack_1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_2/strided_slice/stack_1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/strided_slice/stack"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_2/strided_slice/stack"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_2/Shape"
+    inputs: "conv2d_19/BiasAdd"
+    operation: "Shape"
+  }
+  nodes {
+    id: "conv2d_19/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 6
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_19/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_19/BiasAdd"
+    inputs: "conv2d_19/convolution"
+    inputs: "conv2d_19/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_19/convolution"
+    inputs: "activation_17/Relu"
+    inputs: "conv2d_19/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_19/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 96
+          val: 6
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_19/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/Reshape"
+    inputs: "conv2d_18/BiasAdd"
+    inputs: "reshape_1/Reshape/shape"
+    operation: "Reshape"
+  }
+  nodes {
+    id: "reshape_1/Reshape/shape"
+    inputs: "reshape_1/strided_slice"
+    inputs: "reshape_1/Reshape/shape/1"
+    inputs: "reshape_1/Reshape/shape/2"
+    inputs: "reshape_1/Reshape/shape/3"
+    operation: "Stack"
+    fields {
+      key: "axis"
+      value {
+        i: 0
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/Reshape/shape/3"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_1/Reshape/shape/3"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/Reshape/shape/2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_1/Reshape/shape/2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/Reshape/shape/1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_1/Reshape/shape/1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/strided_slice"
+    inputs: "reshape_1/Shape"
+    inputs: "reshape_1/strided_slice/stack"
+    inputs: "reshape_1/strided_slice/stack_1"
+    inputs: "reshape_1/strided_slice/stack_2"
+    operation: "StridedSlice"
+    fields {
+      key: "begin_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "end_mask"
+      value {
+        i: 0
+      }
+    }
+    fields {
+      key: "shrink_axis_mask"
+      value {
+        i: 1
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/strided_slice/stack_2"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_1/strided_slice/stack_2"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/strided_slice/stack_1"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_1/strided_slice/stack_1"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/strided_slice/stack"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_INT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_reshape_1/strided_slice/stack"
+      }
+    }
+  }
+  nodes {
+    id: "reshape_1/Shape"
+    inputs: "conv2d_18/BiasAdd"
+    operation: "Shape"
+  }
+  nodes {
+    id: "conv2d_18/bias"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_18/bias"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_18/BiasAdd"
+    inputs: "conv2d_18/convolution"
+    inputs: "conv2d_18/bias"
+    operation: "Binary"
+    fields {
+      key: "func"
+      value {
+        s: "add"
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_18/convolution"
+    inputs: "activation_12/Relu"
+    inputs: "conv2d_18/kernel"
+    operation: "Conv"
+    fields {
+      key: "dilation"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+    fields {
+      key: "implicit_padding"
+      value {
+        s: "same"
+      }
+    }
+    fields {
+      key: "inputs_orders"
+      value {
+        ref: "orders_N+C_+CK"
+      }
+    }
+    fields {
+      key: "strides"
+      value {
+        i_list {
+          val: 1
+          val: 1
+        }
+      }
+    }
+  }
+  nodes {
+    id: "conv2d_18/kernel"
+    operation: "Const"
+    fields {
+      key: "dtype"
+      value {
+        dtype: DT_FLOAT32
+      }
+    }
+    fields {
+      key: "shape"
+      value {
+        i_list {
+          val: 1
+          val: 1
+          val: 88
+          val: 2
+        }
+      }
+    }
+    fields {
+      key: "values"
+      value {
+        ref: "weights_conv2d_18/kernel"
+      }
+    }
+  }
+  nodes {
+    id: "MarkOutput_0"
+    inputs: "concatenate_1/concat"
+    operation: "MarkOutput"
+  }
+  nodes {
+    id: "MarkOutput_1"
+    inputs: "concatenate_2/concat"
+    operation: "MarkOutput"
+  }
+}
+referenced_data {
+  key: "orders_N+C"
+  value {
+    dim_orders_list {
+      val {
+        orders {
+          key: -1
+          value {
+            val: 0
+            val: 2
+            val: 2147483647
+            val: 1
+          }
+        }
+      }
+    }
+  }
+}
+referenced_data {
+  key: "orders_N+C_+CK"
+  value {
+    dim_orders_list {
+      val {
+        orders {
+          key: -1
+          value {
+            val: 0
+            val: 2
+            val: 2147483647
+            val: 1
+          }
+        }
+      }
+      val {
+        orders {
+          key: -1
+          value {
+            val: 2
+            val: 2147483647
+            val: 1
+            val: 0
+          }
+        }
+      }
+    }
+  }
+}
+referenced_data {
+  key: "weights_conv2d_1/bias"
+  value {
+    blob: "(...96 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_1/kernel"
+  value {
+    blob: "(...7200 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_10/bias"
+  value {
+    blob: "(...288 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_10/kernel"
+  value {
+    blob: "(...18432 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_11/bias"
+  value {
+    blob: "(...320 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_11/kernel"
+  value {
+    blob: "(...23040 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_12/bias"
+  value {
+    blob: "(...352 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_12/kernel"
+  value {
+    blob: "(...28160 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_13/bias"
+  value {
+    blob: "(...384 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_13/kernel"
+  value {
+    blob: "(...33792 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_14/bias"
+  value {
+    blob: "(...384 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_14/kernel"
+  value {
+    blob: "(...36864 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_15/bias"
+  value {
+    blob: "(...384 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_15/kernel"
+  value {
+    blob: "(...36864 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_16/bias"
+  value {
+    blob: "(...384 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_16/kernel"
+  value {
+    blob: "(...36864 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_17/bias"
+  value {
+    blob: "(...384 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_17/kernel"
+  value {
+    blob: "(...36864 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_18/bias"
+  value {
+    blob: "\217\336\003\274\306\363\253\276"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_18/kernel"
+  value {
+    blob: "(...704 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_19/bias"
+  value {
+    blob: "Q3\025=\2428h;\245Q\212\276U\234\202\276\320\350\177\276\344:;\276"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_19/kernel"
+  value {
+    blob: "(...2304 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_2/bias"
+  value {
+    blob: "(...96 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_2/kernel"
+  value {
+    blob: "(...2304 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_20/bias"
+  value {
+    blob: "(...128 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_20/kernel"
+  value {
+    blob: "(...11264 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_21/bias"
+  value {
+    blob: "(...384 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_21/kernel"
+  value {
+    blob: "(...36864 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_3/bias"
+  value {
+    blob: "(...112 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_3/kernel"
+  value {
+    blob: "(...2688 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_4/bias"
+  value {
+    blob: "(...128 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_4/kernel"
+  value {
+    blob: "(...3584 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_5/bias"
+  value {
+    blob: "(...144 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_5/kernel"
+  value {
+    blob: "(...4608 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_6/bias"
+  value {
+    blob: "(...168 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_6/kernel"
+  value {
+    blob: "(...6048 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_7/bias"
+  value {
+    blob: "(...192 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_7/kernel"
+  value {
+    blob: "(...8064 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_8/bias"
+  value {
+    blob: "(...224 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_8/kernel"
+  value {
+    blob: "(...10752 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_9/bias"
+  value {
+    blob: "(...256 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_conv2d_9/kernel"
+  value {
+    blob: "(...14336 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_1/depthwise_kernel"
+  value {
+    blob: "(...864 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_10/depthwise_kernel"
+  value {
+    blob: "(...2592 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_11/depthwise_kernel"
+  value {
+    blob: "(...2880 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_12/depthwise_kernel"
+  value {
+    blob: "(...3168 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_13/depthwise_kernel"
+  value {
+    blob: "(...3456 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_14/depthwise_kernel"
+  value {
+    blob: "(...3456 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_15/depthwise_kernel"
+  value {
+    blob: "(...3456 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_16/depthwise_kernel"
+  value {
+    blob: "(...3456 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_2/depthwise_kernel"
+  value {
+    blob: "(...864 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_3/depthwise_kernel"
+  value {
+    blob: "(...1008 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_4/depthwise_kernel"
+  value {
+    blob: "(...1152 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_5/depthwise_kernel"
+  value {
+    blob: "(...1296 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_6/depthwise_kernel"
+  value {
+    blob: "(...1512 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_7/depthwise_kernel"
+  value {
+    blob: "(...1728 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_8/depthwise_kernel"
+  value {
+    blob: "(...2016 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_depthwise_conv2d_9/depthwise_kernel"
+  value {
+    blob: "(...2304 bytes skipped...)"
+  }
+}
+referenced_data {
+  key: "weights_lambda_10/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\006\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_12/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\010\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_14/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\010\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_16/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\010\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_18/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\010\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_2/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\004\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_20/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\010\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_22/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\010\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_4/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\004\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_6/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\004\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_lambda_8/Const"
+  value {
+    blob: "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\006\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_1/Reshape/shape/1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_1/Reshape/shape/2"
+  value {
+    blob: "\000\002\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_1/Reshape/shape/3"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_1/strided_slice/stack"
+  value {
+    blob: "\000\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_1/strided_slice/stack_1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_1/strided_slice/stack_2"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_2/Reshape/shape/1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_2/Reshape/shape/2"
+  value {
+    blob: "\200\001\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_2/Reshape/shape/3"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_2/strided_slice/stack"
+  value {
+    blob: "\000\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_2/strided_slice/stack_1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_2/strided_slice/stack_2"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_3/Reshape/shape/1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_3/Reshape/shape/2"
+  value {
+    blob: "\000\002\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_3/Reshape/shape/3"
+  value {
+    blob: "\020\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_3/strided_slice/stack"
+  value {
+    blob: "\000\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_3/strided_slice/stack_1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_3/strided_slice/stack_2"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_4/Reshape/shape/1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_4/Reshape/shape/2"
+  value {
+    blob: "\200\001\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_4/Reshape/shape/3"
+  value {
+    blob: "\020\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_4/strided_slice/stack"
+  value {
+    blob: "\000\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_4/strided_slice/stack_1"
+  value {
+    blob: "\001\000\000\000"
+  }
+}
+referenced_data {
+  key: "weights_reshape_4/strided_slice/stack_2"
+  value {
+    blob: "\001\000\000\000"
+  }
+}

@@ -1,0 +1,15 @@
+﻿  pch.cpp
+  source.cpp
+  Complex.cpp
+  Face_detector.cpp
+  cl2.hpp: CL_HPP_TARGET_OPENCL_VERSION is not defined. It will default to 200 (OpenCL 2.0)
+c:\users\niko\desktop\onlab\opencl analyzer\prototype\prototype\face_detector.cpp(421): warning C4018: '>=': signed/unsigned mismatch
+c:\users\niko\desktop\onlab\opencl analyzer\prototype\prototype\face_detector.cpp(422): warning C4018: '>=': signed/unsigned mismatch
+  File_loader.cpp
+  cl2.hpp: CL_HPP_TARGET_OPENCL_VERSION is not defined. It will default to 200 (OpenCL 2.0)
+  KernelFunctor.cpp
+  cl2.hpp: CL_HPP_TARGET_OPENCL_VERSION is not defined. It will default to 200 (OpenCL 2.0)
+  Prototype.cpp
+  cl2.hpp: CL_HPP_TARGET_OPENCL_VERSION is not defined. It will default to 200 (OpenCL 2.0)
+  Generating Code...
+C:\Users\Niko\Desktop\dlib-19.16\source\dlib\all\source.cpp : fatal error C1128: number of sections exceeded object file format limit: compile with /bigobj

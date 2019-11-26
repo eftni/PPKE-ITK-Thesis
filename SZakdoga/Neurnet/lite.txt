@@ -1,0 +1,176 @@
+{'name': 'input', 'index': 0, 'shape': array([  1, 128, 128,   3]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}	
+{'name': 'conv2d/Kernel', 'index': 1, 'shape': array([24,  5,  5,  3]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d/Bias', 'index': 2, 'shape': array([24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d', 'index': 3, 'shape': array([ 1, 64, 64, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation', 'index': 4, 'shape': array([ 1, 64, 64, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d/Kernel', 'index': 5, 'shape': array([ 1,  3,  3, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d/Bias', 'index': 6, 'shape': array([24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d', 'index': 7, 'shape': array([ 1, 64, 64, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_1/Kernel', 'index': 8, 'shape': array([24,  1,  1, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_1/Bias', 'index': 9, 'shape': array([24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_1', 'index': 10, 'shape': array([ 1, 64, 64, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add', 'index': 11, 'shape': array([ 1, 64, 64, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_1', 'index': 12, 'shape': array([ 1, 64, 64, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_1/Kernel', 'index': 13, 'shape': array([ 1,  3,  3, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_1/Bias', 'index': 14, 'shape': array([24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_1', 'index': 15, 'shape': array([ 1, 64, 64, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_2/Kernel', 'index': 16, 'shape': array([28,  1,  1, 24]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_2/Bias', 'index': 17, 'shape': array([28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_2', 'index': 18, 'shape': array([ 1, 64, 64, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding/Paddings', 'index': 19, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding', 'index': 20, 'shape': array([ 1, 64, 64, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_1', 'index': 21, 'shape': array([ 1, 64, 64, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_2', 'index': 22, 'shape': array([ 1, 64, 64, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_2/Kernel', 'index': 23, 'shape': array([ 1,  3,  3, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_2/Bias', 'index': 24, 'shape': array([28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_2', 'index': 25, 'shape': array([ 1, 32, 32, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'max_pooling2d', 'index': 26, 'shape': array([ 1, 32, 32, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_3/Kernel', 'index': 27, 'shape': array([32,  1,  1, 28]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_3/Bias', 'index': 28, 'shape': array([32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_3', 'index': 29, 'shape': array([ 1, 32, 32, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_1/Paddings', 'index': 30, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_1', 'index': 31, 'shape': array([ 1, 32, 32, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_2', 'index': 32, 'shape': array([ 1, 32, 32, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_3', 'index': 33, 'shape': array([ 1, 32, 32, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_3/Kernel', 'index': 34, 'shape': array([ 1,  3,  3, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_3/Bias', 'index': 35, 'shape': array([32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_3', 'index': 36, 'shape': array([ 1, 32, 32, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_4/Kernel', 'index': 37, 'shape': array([36,  1,  1, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_4/Bias', 'index': 38, 'shape': array([36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_4', 'index': 39, 'shape': array([ 1, 32, 32, 36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_2/Paddings', 'index': 40, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_2', 'index': 41, 'shape': array([ 1, 32, 32, 36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_3', 'index': 42, 'shape': array([ 1, 32, 32, 36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_4', 'index': 43, 'shape': array([ 1, 32, 32, 36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_4/Kernel', 'index': 44, 'shape': array([ 1,  3,  3, 36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_4/Bias', 'index': 45, 'shape': array([36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_4', 'index': 46, 'shape': array([ 1, 32, 32, 36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_5/Kernel', 'index': 47, 'shape': array([42,  1,  1, 36]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_5/Bias', 'index': 48, 'shape': array([42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_5', 'index': 49, 'shape': array([ 1, 32, 32, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_3/Paddings', 'index': 50, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_3', 'index': 51, 'shape': array([ 1, 32, 32, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_4', 'index': 52, 'shape': array([ 1, 32, 32, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_5', 'index': 53, 'shape': array([ 1, 32, 32, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_5/Kernel', 'index': 54, 'shape': array([ 1,  3,  3, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_5/Bias', 'index': 55, 'shape': array([42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_5', 'index': 56, 'shape': array([ 1, 16, 16, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'max_pooling2d_1', 'index': 57, 'shape': array([ 1, 16, 16, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_6/Kernel', 'index': 58, 'shape': array([48,  1,  1, 42]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_6/Bias', 'index': 59, 'shape': array([48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_6', 'index': 60, 'shape': array([ 1, 16, 16, 48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_4/Paddings', 'index': 61, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_4', 'index': 62, 'shape': array([ 1, 16, 16, 48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_5', 'index': 63, 'shape': array([ 1, 16, 16, 48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_6', 'index': 64, 'shape': array([ 1, 16, 16, 48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_6/Kernel', 'index': 65, 'shape': array([ 1,  3,  3, 48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_6/Bias', 'index': 66, 'shape': array([48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_6', 'index': 67, 'shape': array([ 1, 16, 16, 48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_7/Kernel', 'index': 68, 'shape': array([56,  1,  1, 48]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_7/Bias', 'index': 69, 'shape': array([56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_7', 'index': 70, 'shape': array([ 1, 16, 16, 56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_5/Paddings', 'index': 71, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_5', 'index': 72, 'shape': array([ 1, 16, 16, 56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_6', 'index': 73, 'shape': array([ 1, 16, 16, 56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_7', 'index': 74, 'shape': array([ 1, 16, 16, 56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_7/Kernel', 'index': 75, 'shape': array([ 1,  3,  3, 56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_7/Bias', 'index': 76, 'shape': array([56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_7', 'index': 77, 'shape': array([ 1, 16, 16, 56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_8/Kernel', 'index': 78, 'shape': array([64,  1,  1, 56]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_8/Bias', 'index': 79, 'shape': array([64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_8', 'index': 80, 'shape': array([ 1, 16, 16, 64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_6/Paddings', 'index': 81, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_6', 'index': 82, 'shape': array([ 1, 16, 16, 64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_7', 'index': 83, 'shape': array([ 1, 16, 16, 64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_8', 'index': 84, 'shape': array([ 1, 16, 16, 64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_8/Kernel', 'index': 85, 'shape': array([ 1,  3,  3, 64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_8/Bias', 'index': 86, 'shape': array([64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_8', 'index': 87, 'shape': array([ 1, 16, 16, 64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_9/Kernel', 'index': 88, 'shape': array([72,  1,  1, 64]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_9/Bias', 'index': 89, 'shape': array([72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_9', 'index': 90, 'shape': array([ 1, 16, 16, 72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_7/Paddings', 'index': 91, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_7', 'index': 92, 'shape': array([ 1, 16, 16, 72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_8', 'index': 93, 'shape': array([ 1, 16, 16, 72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_9', 'index': 94, 'shape': array([ 1, 16, 16, 72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_9/Kernel', 'index': 95, 'shape': array([ 1,  3,  3, 72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_9/Bias', 'index': 96, 'shape': array([72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_9', 'index': 97, 'shape': array([ 1, 16, 16, 72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_10/Kernel', 'index': 98, 'shape': array([80,  1,  1, 72]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_10/Bias', 'index': 99, 'shape': array([80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_10', 'index': 100, 'shape': array([ 1, 16, 16, 80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_8/Paddings', 'index': 101, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_8', 'index': 102, 'shape': array([ 1, 16, 16, 80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_9', 'index': 103, 'shape': array([ 1, 16, 16, 80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_10', 'index': 104, 'shape': array([ 1, 16, 16, 80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_10/Kernel', 'index': 105, 'shape': array([ 1,  3,  3, 80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_10/Bias', 'index': 106, 'shape': array([80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_10', 'index': 107, 'shape': array([ 1, 16, 16, 80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_11/Kernel', 'index': 108, 'shape': array([88,  1,  1, 80]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_11/Bias', 'index': 109, 'shape': array([88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_11', 'index': 110, 'shape': array([ 1, 16, 16, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_9/Paddings', 'index': 111, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_9', 'index': 112, 'shape': array([ 1, 16, 16, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_10', 'index': 113, 'shape': array([ 1, 16, 16, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_11', 'index': 114, 'shape': array([ 1, 16, 16, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_11/Kernel', 'index': 115, 'shape': array([ 1,  3,  3, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_11/Bias', 'index': 116, 'shape': array([88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_11', 'index': 117, 'shape': array([ 1,  8,  8, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'max_pooling2d_2', 'index': 118, 'shape': array([ 1,  8,  8, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_12/Kernel', 'index': 119, 'shape': array([96,  1,  1, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_12/Bias', 'index': 120, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_12', 'index': 121, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_10/Paddings', 'index': 122, 'shape': array([4, 2]), 'dtype': <class 'numpy.int32'>, 'quantization': (0.0, 0)}
+{'name': 'channel_padding_10', 'index': 123, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_11', 'index': 124, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_12', 'index': 125, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_12/Kernel', 'index': 126, 'shape': array([ 1,  3,  3, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_12/Bias', 'index': 127, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_12', 'index': 128, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_13/Kernel', 'index': 129, 'shape': array([96,  1,  1, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_13/Bias', 'index': 130, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_13', 'index': 131, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_12', 'index': 132, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_13', 'index': 133, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_13/Kernel', 'index': 134, 'shape': array([ 1,  3,  3, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_13/Bias', 'index': 135, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_13', 'index': 136, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_14/Kernel', 'index': 137, 'shape': array([96,  1,  1, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_14/Bias', 'index': 138, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_14', 'index': 139, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_13', 'index': 140, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_14', 'index': 141, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_14/Kernel', 'index': 142, 'shape': array([ 1,  3,  3, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_14/Bias', 'index': 143, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_14', 'index': 144, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_15/Kernel', 'index': 145, 'shape': array([96,  1,  1, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_15/Bias', 'index': 146, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_15', 'index': 147, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_14', 'index': 148, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_15', 'index': 149, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_15/Kernel', 'index': 150, 'shape': array([ 1,  3,  3, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_15/Bias', 'index': 151, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'depthwise_conv2d_15', 'index': 152, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_16/Kernel', 'index': 153, 'shape': array([96,  1,  1, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_16/Bias', 'index': 154, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'conv2d_16', 'index': 155, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'add_15', 'index': 156, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'activation_16', 'index': 157, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'classificator_8/Kernel', 'index': 158, 'shape': array([ 2,  1,  1, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'classificator_8/Bias', 'index': 159, 'shape': array([2]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'classificator_8', 'index': 160, 'shape': array([ 1, 16, 16,  2]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'classificator_16/Kernel', 'index': 161, 'shape': array([ 6,  1,  1, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'classificator_16/Bias', 'index': 162, 'shape': array([6]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'classificator_16', 'index': 163, 'shape': array([1, 8, 8, 6]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'regressor_8/Kernel', 'index': 164, 'shape': array([32,  1,  1, 88]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'regressor_8/Bias', 'index': 165, 'shape': array([32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'regressor_8', 'index': 166, 'shape': array([ 1, 16, 16, 32]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'regressor_16/Kernel', 'index': 167, 'shape': array([96,  1,  1, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'regressor_16/Bias', 'index': 168, 'shape': array([96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'regressor_16', 'index': 169, 'shape': array([ 1,  8,  8, 96]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'reshape', 'index': 170, 'shape': array([  1, 512,   1]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'reshape_2', 'index': 171, 'shape': array([  1, 384,   1]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'reshape_1', 'index': 172, 'shape': array([  1, 512,  16]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'reshape_3', 'index': 173, 'shape': array([  1, 384,  16]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'classificators', 'index': 174, 'shape': array([  1, 896,   1]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}
+{'name': 'regressors', 'index': 175, 'shape': array([  1, 896,  16]), 'dtype': <class 'numpy.float32'>, 'quantization': (0.0, 0)}

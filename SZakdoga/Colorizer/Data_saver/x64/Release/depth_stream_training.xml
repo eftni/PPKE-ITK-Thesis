@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+	<image file='.\depth_color\col_depth0.png'>
+		<box top='52' left='358' width='176' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth1.png'>
+		<box top='90' left='58' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth2.png'>
+		<box top='90' left='410' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth3.png'>
+		<box top='148' left='378' width='174' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth4.png'>
+		<box top='128' left='32' width='174' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth5.png'>
+		<box top='138' left='330' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth6.png'>
+		<box top='122' left='298' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth7.png'>
+		<box top='138' left='298' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth8.png'>
+		<box top='122' left='298' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth9.png'>
+		<box top='122' left='362' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth10.png'>
+		<box top='106' left='298' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth11.png'>
+		<box top='170' left='346' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth12.png'>
+		<box top='170' left='346' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth13.png'>
+		<box top='154' left='266' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth14.png'>
+		<box top='108' left='358' width='176' height='176'/>
+	</image>
+	<image file='.\depth_color\col_depth15.png'>
+		<box top='108' left='108' width='176' height='176'/>
+	</image>
+	<image file='.\depth_color\col_depth16.png'>
+		<box top='122' left='202' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth17.png'>
+		<box top='106' left='202' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth18.png'>
+		<box top='154' left='202' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth19.png'>
+		<box top='138' left='250' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth20.png'>
+		<box top='108' left='204' width='176' height='176'/>
+	</image>
+	<image file='.\depth_color\col_depth21.png'>
+		<box top='122' left='298' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth22.png'>
+		<box top='128' left='300' width='176' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth23.png'>
+		<box top='122' left='330' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth24.png'>
+		<box top='202' left='394' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth25.png'>
+		<box top='202' left='298' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth26.png'>
+		<box top='186' left='202' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth27.png'>
+		<box top='170' left='122' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth28.png'>
+		<box top='106' left='170' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth29.png'>
+		<box top='186' left='202' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth30.png'>
+		<box top='186' left='202' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth31.png'>
+		<box top='48' left='324' width='250' height='250'/>
+	</image>
+	<image file='.\depth_color\col_depth32.png'>
+		<box top='0' left='58' width='300' height='334'/>
+	</image>
+	<image file='.\depth_color\col_depth33.png'>
+		<box top='38' left='432' width='208' height='210'/>
+	</image>
+	<image file='.\depth_color\col_depth34.png'>
+		<box top='90' left='74' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth35.png'>
+		<box top='166' left='90' width='174' height='176'/>
+	</image>
+	<image file='.\depth_color\col_depth36.png'>
+		<box top='138' left='202' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth37.png'>
+		<box top='106' left='282' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth38.png'>
+		<box top='106' left='346' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth39.png'>
+		<box top='90' left='362' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth40.png'>
+		<box top='204' left='358' width='176' height='176'/>
+	</image>
+	<image file='.\depth_color\col_depth41.png'>
+		<box top='186' left='186' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth42.png'>
+		<box top='138' left='378' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth43.png'>
+		<box top='52' left='186' width='174' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth44.png'>
+		<box top='52' left='282' width='174' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth45.png'>
+		<box top='70' left='148' width='174' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth46.png'>
+		<box top='106' left='458' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth47.png'>
+		<box top='170' left='346' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth48.png'>
+		<box top='154' left='138' width='146' height='146'/>
+	</image>
+	<image file='.\depth_color\col_depth49.png'>
+		<box top='90' left='108' width='176' height='174'/>
+	</image>
+	<image file='.\depth_color\col_depth50.png'>
+		<box top='122' left='426' width='146' height='146'/>
+	</image>
+</images>
+</dataset>
